@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: KAFKA-PRODUCER
+  datasource:    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: nagen
+  jpa:    hibernate:      ddl-auto: update    show-sql: true  kafka:    producer:      bootstrap-servers:      - localhost:9092
+      key-serializer:        org.apache.kafka.common.serialization.StringSerializer
+      value-serializer:        org.apache.kafka.common.serialization.StringSerializer   
+
+kafka:
+  topic-name: order-topic
+  
+server:  port: 1007
+  
+  
+  
+eureka:  client:    register-with-eureka: true
+    fetch-registry: true
+    service-url:      defaultZone: http://localhost:8761/eureka
+  instance:    hostname: localhost
